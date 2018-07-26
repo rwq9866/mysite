@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>userDemo</title>
+    <script src="../static/js/jquery-3.2.1.js"></script>
+    <script src="../static/js/userDemo.js"></script>
+</head>
+<body>
+    <fieldset>
+        <legend id="lege">添加用户</legend>
+        <form>
+            <p>
+                <input name="name" id="name" placeholder="姓名...">
+            </p>
+            <p>
+                <input type="password" id="pwd" name="pwd" placeholder="密码...">
+            </p>
+            <input type="button" id="butt" value="提交">
+        </form>
+    </fieldset>
+    <fieldset>
+        <legend>
+            用户展示
+        </legend>
+        <table>
+            <thead align="center">
+                <th>
+                    用户名
+                </th>
+                <th>
+                    密码
+                </th>
+                <th>
+                    操作
+                </th>
+            </thead>
+            <tbody>
+                {% for da in data %}
+                    <tr>
+                        <td>{{ da.name }}</td>
+                        <td>{{ da.pwd }}</td>
+                        <td>
+                            <input type="button" value="修改" onclick="modi('{{ da }}')">
+                            <input type="button" value="删除" onclick="dele('{{ da.id }}')">
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </fieldset>
+
+
+    <fieldset>
+
+    </fieldset>
+</body>
+</html>
